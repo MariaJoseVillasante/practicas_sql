@@ -172,6 +172,7 @@ SELECT pelicula,LENGTH(pelicula)
     -- "Mouling Rouge"	13
     -- "Psicosis"	8
 -- Consultar cual es la longitud más grande entre todos los títulos de las películas
-SELECT pelicula FROM public.peliculas
-    where LENGTH(pelicula)=52; 
-    -- Sweeney Todd: El barbero diabólico de la calle Fleet
+SELECT MAX(LENGTH(pelicula))
+    AS longitud_titulo
+    FROM public.peliculas;
+    -- Sweeney Todd: El barbero diabólico de la calle Fleet; 52
