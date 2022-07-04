@@ -1,8 +1,8 @@
-/*-paso 1 -*/ 
+/*-paso 1: Crear base de datos llamada posts -*/ 
 CREATE DATABASE posts;
-/*-paso 2 -*/
+/*-paso 2: Crear tabla -*/
 CREATE TABLE post(id SERIAL, usuario VARCHAR(20),fecha_creacion DATE, contenido VARCHAR, descripcion VARCHAR(255),PRIMARY KEY (id));
-/*-paso 3 -*/
+/*-paso 3 agregar datos-*/
 INSERT INTO post (usuario, fecha_creacion, contenido, descripcion)
 VALUES ('Pamela','07-13-2019' ,'Revisaremos el contenido que se verá en
 este curso, comenzando por ..','Introducción a las bases de datos');
@@ -19,7 +19,6 @@ UPDATE post SET titulo ='Unidad 1' WHERE id = 1;
 UPDATE post SET titulo ='Unidad 2' WHERE id = 2;
 UPDATE post SET titulo ='Programación?' WHERE id = 3;
 /*-paso 6 -*/
-[13:26] Roberto Hernandez
 INSERT INTO post (usuario, fecha_creacion, contenido, descripcion,
 titulo)
 VALUES ('Pedro','07-14-2019' ,'Los pasos para armar ...','Tips al
