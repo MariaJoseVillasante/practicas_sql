@@ -60,7 +60,7 @@ ADD estado text;
 -- insertar nuevo auto
 INSERT INTO public.autos(
 	id, marca, modelo, year, color, estado)
-	VALUES (5, 'mazda', 'cx5', 2022, 'grafito', 'nuevo')
+	VALUES (5, 'mazda', 'cx5', 2022, 'grafito', 'nuevo');
 
 -- Actualizar info
 UPDATE public.autos
