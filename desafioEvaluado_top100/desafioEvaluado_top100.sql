@@ -30,7 +30,7 @@ SELECT nombre FROM public.reparto
     "Victor Garber"
     "Suzy Amis"*/
 /*5-En cuantas peículas del top 100 participa Harrison Ford*/
-SELECT reparto.pelicula_id FROM public.reparto
+SELECT count(pelicula_id) FROM public.reparto
     where nombre = 'Harrison Ford'; 
     -- 8: 48,59,63,67,69,87,88,97
 -- 6-Indicar las películas estrenadas entre los años 1990 y 1999 ordenadas por título de manera ascendente.
