@@ -1,7 +1,7 @@
-/*Crear base de datos llamada películas*/
+/*1-Crear base de datos llamada películas*/
 CREATE DATABASE peliculas;
 \c peliculas /*para cambiarnos a esta base de datos*/
-/*Crear tablas: películas y reparto desde csv*/
+/*2- Crear tablas: películas y reparto desde csv*/
 CREATE TABLE peliculas(id [PK]BIGINT NOT NULL, pelicula CHARACTER VARYING  NOT NULL, año estreno INTEGER  NOT NULL, director CHARACTER VARYING  NOT NULL, PRIMARY KEY (id) NOT NULL);
 /*-paso 3 agregar datos desde tabla peliculas.csv-*/
 COPY peliculas FROM '\i ...\peliculas.sql'csv header;
@@ -9,11 +9,11 @@ COPY peliculas FROM '\i ...\peliculas.sql'csv header;
 CREATE TABLE reparto(pelicula_id INTEGER NOT NULL, nombre CHARACTER VARYING NOT NULL, FOREIGN KEY (pelicula_id) REFERENCES peliculas(id));
 /*-paso 3 agregar datos desde tabla peliculas.csv-*/
 COPY reparto FROM '\i ...\reparto.sql'csv;
-/*-Obtener el ID de la película "Titanic"-*/
+/*-3- Obtener el ID de la película "Titanic"-*/
 SELECT id FROM public.pelicula
     WHERE pelicula = 'Titanic' or pelicula = 'titanic';
     /* id = '2' */
-/*-Listar a todos los actores que aparecen en la película "Titanic"-*/
+/*5-Listar a todos los actores que aparecen en la película "Titanic"-*/
 SELECT nombre FROM public.reparto
     where reparto.pelicula_id = '2';
     /*"Leonardo DiCaprio"
@@ -29,11 +29,11 @@ SELECT nombre FROM public.reparto
     "Gloria Stuart"
     "Victor Garber"
     "Suzy Amis"*/
-/*En cuantas peículas del top 100 participa Harrison Ford*/
+/*5-En cuantas peículas del top 100 participa Harrison Ford*/
 SELECT reparto.pelicula_id FROM public.reparto
     where nombre = 'Harrison Ford'; 
     -- 8: 48,59,63,67,69,87,88,97
--- Indicar las películas estrenadas entre los años 1990 y 1999 ordenadas por título de manera ascendente.
+-- 6-Indicar las películas estrenadas entre los años 1990 y 1999 ordenadas por título de manera ascendente.
 SELECT pelicula FROM public.peliculas
     where ano_estreno <= 1999 and ano_estreno >= 1990
     ORDER BY pelicula ASC;     
@@ -67,7 +67,7 @@ SELECT pelicula FROM public.peliculas
     -- "Toy Story 2"
     -- "Trainspotting"
     -- "Uno de los nuestros"
--- Hacer una consulta SQL que muestre los títulos con su longitud, la longitud debe ser nombrado para la consulta como “longitud_titulo”.
+-- 7-Hacer una consulta SQL que muestre los títulos con su longitud, la longitud debe ser nombrado para la consulta como “longitud_titulo”.
 SELECT pelicula,LENGTH(pelicula)
     AS longitud_titulo
     FROM public.peliculas; 
@@ -171,7 +171,7 @@ SELECT pelicula,LENGTH(pelicula)
     -- "Uno de los nuestros"	19
     -- "Mouling Rouge"	13
     -- "Psicosis"	8
--- Consultar cual es la longitud más grande entre todos los títulos de las películas
+-- 8-Consultar cual es la longitud más grande entre todos los títulos de las películas
 SELECT MAX(LENGTH(pelicula))
     AS longitud_titulo
     FROM public.peliculas;
