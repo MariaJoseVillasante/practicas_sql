@@ -172,6 +172,7 @@ SELECT pelicula,LENGTH(pelicula)
     -- "Mouling Rouge"	13
     -- "Psicosis"	8
 -- 8-Consultar cual es la longitud más grande entre todos los títulos de las películas
+-- select id, name, length(name) as longitud_nombre from products order by length(name) desc limit 1;
 SELECT MAX(LENGTH(pelicula))
     AS longitud_titulo
     FROM public.peliculas;
