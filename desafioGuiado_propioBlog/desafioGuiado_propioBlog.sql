@@ -198,16 +198,26 @@ INSERT INTO public.comentarios(
 	VALUES (3, 4, 'Este es el comentario 15', '2020-06-28');
 
 -- Seleccionar el correo, id y título de todos los post publicados por el usuario 5.
-SELECT * 
+SELECT email, usuarios.id, titulo 
 FROM public.usuarios
-JOIN public.posts ON usuarios.id=posts.usuario_id 
+inner JOIN public.posts 
+ON usuarios.id=posts.usuario_id 
 WHERE usuarios.id = '5';
+-- SELECT * 
+-- FROM public.usuarios
+-- JOIN public.posts ON usuarios.id=posts.usuario_id 
+-- WHERE usuarios.id = '5';
 
 -- Listar el correo, id y el detalle de todos los comentarios que no hayan sido realizados
 -- por el usuario con email usuario06@hotmail.com.
-SELECT * 
+-- SELECT * 
+-- FROM public.usuarios
+-- JOIN public.comentarios ON comentarios.usuario_id=usuarios.id 
+-- WHERE usuarios.email != 'usuario06@hotmail.com';
+SELECT email, usuarios.id, texto, fecha 
 FROM public.usuarios
-JOIN public.comentarios ON comentarios.usuario_id=usuarios.id 
+inner JOIN public.comentarios 
+ON comentarios.usuario_id=usuarios.id 
 WHERE usuarios.email != 'usuario06@hotmail.com';
 
 -- Listar los usuarios que no han publicado ningún post.
