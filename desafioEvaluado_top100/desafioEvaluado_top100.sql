@@ -11,7 +11,7 @@ CREATE TABLE reparto(pelicula_id INTEGER NOT NULL, nombre CHARACTER VARYING NOT 
 COPY reparto FROM '\i ...\reparto.sql'csv;
 /*-Obtener el ID de la película "Titanic"-*/
 SELECT id FROM public.pelicula
-    WHERE pelicula = 'Titanic'
+    WHERE pelicula = 'Titanic' or pelicula = 'titanic';
     /* id = '2' */
 /*-Listar a todos los actores que aparecen en la película "Titanic"-*/
 SELECT nombre FROM public.reparto
