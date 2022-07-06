@@ -58,12 +58,7 @@ select * FROM producto;
 \set AUTOCOMMIT off
 \echo :AUTOCOMMIT
 
-BEGIN TRANSACTION;
-INSERT INTO public.cliente(
-	nombre, email)
-	VALUES ('Nuevo Cliente', 'nuevocliente@gmail.com');
-COMMIT;
-
+INSERT INTO cliente(nombre, email) VALUES('Nuevo Cliente5', 'nuevocliente5@gmail.com');
 ROLLBACK;
 
 \set AUTOCOMMIT on
