@@ -1,0 +1,1 @@
+psql -U mariajosevillasante -d unidad2 -f /Users/mariajosevillasante/Desktop/unidad2.sql
